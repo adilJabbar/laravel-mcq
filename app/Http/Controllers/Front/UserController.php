@@ -30,9 +30,6 @@ class UserController extends Controller
 
         $mcqs = McqQuestion::all();
         return view('mcq_attempt', ['mcqs' => $mcqs]);
-
-
-        return view('back.question.create');
     }
     public function QuestionPost(Request $request)
     {

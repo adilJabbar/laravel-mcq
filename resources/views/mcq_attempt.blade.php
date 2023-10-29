@@ -110,13 +110,16 @@
                 word-spacing: 2px;
             }
         }
+        .question-container{
+            min-width: 100%!important;
+        }
     </style>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <div class="container mt-sm-5 my-1">
+                    <div class="question-container container mt-sm-5 my-1">
                         <form action="{{ route('mcq-attempt') }}" method="POST">
                             @csrf
                             @foreach($mcqs as $mcq)
@@ -134,7 +137,11 @@
                                 </div>
                             </div>
                             @endforeach
+                            @if(isset($mcqs[0]))
                             <button type="submit">Submit</button>
+                            @else
+                                <h1>No MCQs available</h1>
+                            @endif
                         </form>
                     </div>
                 </div>
