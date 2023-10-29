@@ -35,20 +35,17 @@
                                 <tr>
                                     <td>{{ $user->name }}</td>
                                     <td>{{$user->email}}</td>
-                                    
+
                                     <td>{{isset($user->mcqResult['correct_answers']) ? $user->mcqResult['correct_answers'] : 'N/A'}}/{{isset($user->mcqResult['total_questions']) ? $user->mcqResult['total_questions'] : 'N/A'}}</td>
                                     <td>{{ isset( $user->mcqResult['percentage'])? $user->mcqResult['percentage']:'N/A' }}</td>
                                     <td>
-                                        @if(isset( $user->mcqResult['percentage']) &&  $user->mcqResult['percentage'] < 50)
-                                        Failed
-                                        @else
-                                        @if(isset( $user->mcqResult['percentage']) &&  $user->mcqResult['percentage'] >= 50)
-                                        Passed
-                                        @else
-                                        N/A
-                                        @endif
+                                        @if(isset( $user->mcqResult['percentage']) && $user->mcqResult['percentage'] < 50) Failed @else @if(isset( $user->mcqResult['percentage']) && $user->mcqResult['percentage'] >= 50)
+                                            Passed
+                                            @else
+                                            N/A
+                                            @endif
 
-                                        @endif
+                                            @endif
                                     </td>
                                 </tr>
                                 @endforeach
